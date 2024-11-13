@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="body">
+
+  <!-- Main container -->
+  <div class="game-container" id="game-container">
+    <!-- Start screen, shown by default-->
+    <div class="" id="start-screen">
+      <h1>Catch Alessandro</h1>
+      <p>Alessandro needs a bath, but he won’t let himself get caught! 🐾
+      <p>Run and try to catch him at least 10 times to win!</p>
+      </p>
+      <button class="startGameBtn">Start Game</button>
+      <div id="alessandro-bad" class=""></div>
+    </div>
+    <!-- Victory screen, hidden by default-->
+    <div class="hidden" id="victory-screen">
+      <h1>YOU DID IT!</h1>
+      <p>You caught Alessandro 10 times. <span>You’re a pro at chasing! Alessandro is clean… for now.</span>
+      </p>
+      <button class="startGameBtn">Replay</button>
+      <div id="alessandro-good" class=""></div>
+    </div>
+    <!-- Game Over screen, hidden by default-->
+    <div class="hidden" id="game-over">
+      <h1>GAME OVER</h1>
+      <p>Alessandro got away this time… 🐾<span>Do you dare to try again?</span></p>
+
+      <button class="startGameBtn">Replay</button>
+      <div id="alessandro-bad" class=""></div>
+    </div>
+
+    <!-- Game Play environment, hidden by default-->
+    <div class="hidden" id="game-play">
+      <!-- Clouds-->
+      <div class="clouds cloud1"></div>
+      <div class="clouds cloud2"></div>
+      <div class="clouds cloud3"></div>
+      <div class="platform1"></div>
+      <div class="platform2"></div>
+
+      <!-- HUD-->
+      <div class="hud">
+        <span class="catches">Catch Count: <span id="catchCount">0</span></span>
+        <span class="time">Remaining time: <span id="timeRemaining">60s</span></span>
+        <span id="quit-text" class="">Press 'q' to quit the game</span>
+        <button id="quit-button-mobile" class="">Quit Game</button>
+      </div>
+      <!-- This is the div where Alessandro moves -->
+      <div class="game-area">
+        <div id="alessandro" class="hidden"></div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Audio elements-->
+  <audio id="background-music" src="src/music.mp3" loop></audio>
+  <audio id="catch-sound" src="src/retro-catch.mp3"></audio>
+  <audio id="gameOverMusic" src="src/game-over.mp3"></audio>
+  <audio id="victoryMusic" src="src/achievement.mp3"></audio>
+  <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,297 @@
+/* General*/
+* {
+    margin: 0;
+    padding: 0;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+
+/* .hidden is used on the javascript side to toggle on and off the different screens. */
+.hidden {
+    display: none !important;
+}
+
+
+body {
+    background-color: #9CFCF0;
+    overflow: hidden;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    font-family: 'Press Start 2P', sans-serif;
+    /* Asegúrate de que la fuente esté cargada */
+    line-height: 1.2;
+    text-align: center;
+}
+
+
+p {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+}
+
+button {
+    cursor: pointer;
+    padding: 16px 40px;
+    font-family: 'Press Start 2P', sans-serif;
+    text-transform: uppercase;
+    background-color: #F9C62C;
+    box-shadow: 8px 8px 0px 0px #000;
+    border: none;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    margin: 20px auto;
+    display: inline-block;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+
+/* These are the styles of the screens outside game-play*/
+
+#start-screen,
+#game-over,
+#victory-screen {
+    height: 100vh;
+    background-image: url('src/environment/full-background-start.png');
+    background-size: cover;
+    background-position: bottom;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center horizontally */
+    justify-content: center;
+    /* Center vertically */
+    text-align: center;
+}
+
+#alessandro-bad {
+    height: 60%;
+    width: 60%;
+    background-image: url('src/ALESSANDRO - Bad.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: squish 1.5s ease-in-out infinite;
+}
+
+#alessandro-good {
+    height: 60%;
+    width: 60%;
+    background-image: url('src/ALESSANDRO - Good.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: squish 1.5s ease-in-out infinite;
+}
+
+
+/* Main styles for the game play*/
+
+#game-play {
+    height: 100vh;
+    background-image: url('src/environment/full-background-gameplay.png');
+    background-size: cover;
+    background-position: bottom;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* Here's where users get info about the catches, time remaining and how to quit */
+
+.hud {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5px;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 1em;
+}
+
+.catches,
+.time {
+    margin: 5px;
+}
+
+/* Only shows the qui-text in desktop screens*/
+@media (min-width: 769px) {
+    #quit-text {
+        display: inline-block;
+    }
+
+    #quit-button-mobile {
+        display: none;
+    }
+}
+
+/*Shows a quit button on mobile devices*/
+@media (max-width: 768px) {
+    #quit-text {
+        display: none;
+
+    }
+
+    #quit-button-mobile {
+        display: block;
+    }
+}
+
+
+
+/* This is where Alessandro moves */
+
+.game-area {
+    display: flex;
+    position: relative;
+    flex: 1;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+}
+
+#alessandro {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-image: url('src/ALESSANDRO\ -\ Good.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    animation: squish 1.5s ease-in-out infinite;
+}
+
+
+
+/* Floating clouds */
+.clouds {
+    position: absolute;
+    background-image: url('src/environment/Cloud-1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    z-index: 5;
+}
+
+.cloud1 {
+    left: 10%;
+    top: 20%;
+    width: 200px;
+    height: 230px;
+    animation: moveClouds1 20s linear infinite;
+}
+
+.cloud2 {
+    left: 50%;
+    top: 30%;
+    width: 150px;
+    height: 80px;
+    animation: moveClouds2 25s linear infinite;
+}
+
+.cloud3 {
+    left: 80%;
+    top: 20%;
+    width: 150px;
+    height: 80px;
+    animation: moveClouds3 30s linear infinite;
+}
+
+.platform1 {
+    position: absolute;
+    left: 80%;
+    top: 50%;
+    width: 180px;
+    height: 80px;
+    background-image: url('src/environment/Platform.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+    animation: moveUpDown 3s ease-in-out infinite;
+}
+
+.platform2 {
+    position: absolute;
+    right: 80%;
+    top: 50%;
+    width: 180px;
+    height: 80px;
+    background-image: url('src/environment/Platform.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+    animation: moveUpDown 3s ease-in-out infinite;
+}
+
+/*Animations*/
+
+@keyframes moveClouds1 {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes moveClouds2 {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes moveClouds3 {
+    0% {
+        transform: translateX(-120%);
+    }
+
+    100% {
+        transform: translateX(120%);
+    }
+}
+
+@keyframes squish {
+
+    0%,
+    100% {
+        transform: scale(1, 1);
+        /* Alessandro normal */
+    }
+
+    50% {
+        transform: scale(1, 0.95);
+        /* Alessandro aplastado */
+    }
+}
+
+@keyframes moveUpDown {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+        /* Adjust this value for more/less movement */
+    }
+}
