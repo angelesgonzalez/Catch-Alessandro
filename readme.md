@@ -63,11 +63,9 @@ Here's what the game looks like:
 
 ![Victory Screen](/src/readme-gifs/ezgif-7-04807d2e01.gif)
 
-## ⚙️ Installation
+## ⚙️ How to Run the Game Locally
 
-To run this game locally, follow these steps:
-
-1. **Clone the repository**: clone the github repository and open the index.html file.
+Clone the repository and open the index.html file in your browser.
 
 ## 📄 Credits
 
